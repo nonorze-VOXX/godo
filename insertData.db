@@ -1,0 +1,4 @@
+INSERT INTO godoList(done,endDate,startDate,title)
+values(
+    false,2022-08-11,2023-08-11,'live'
+);
