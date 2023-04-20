@@ -1,7 +1,0 @@
-DROP TABLE godoList;
-CREATE TABLE 'godoList'(
-   'done' BOOL NULL,
-   'endDate' DATE NULL,
-   'startDate'DATE NULL,
-   'title' TEXT
-);

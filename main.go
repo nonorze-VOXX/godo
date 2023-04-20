@@ -1,22 +1,30 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"godo/controllers"
+	"godo/initializers"
+
+	"github.com/gin-gonic/gin"
 )
 
-type UnitTodo struct {
-	title string
-	sTime time.Time
-	eTime time.Time
+func init() {
+	initializers.LoadEnvVar()
+	initializers.Dbcon()
 }
 
 func main() {
+	r := gin.Default()
 
+	r.GET("/", controllers.GetReturn)
+	r.POST("/post", controllers.Postfunction)
+	r.GET("/posts", controllers.PostsIndex)
+	r.GET("/post/:id", controllers.PostsShow)
+	r.POST("/postup/:id", controllers.Update)
+	r.Run()
 }
-func checkErr(err error) {
-	if err != nil {
-		fmt.Print("1")
-		panic(err)
-	}
-}
+
+// func checkErr(err error) {
+// 	if err != nil {
+// 		fmt.Print("amogus")
+// 	}
+// }
