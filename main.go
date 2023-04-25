@@ -15,8 +15,8 @@ func init() {
 func main() {
 	r := gin.Default()
 
-	r.GET("/", controllers.GetMainPage)
 	r.GET("/godoList", controllers.GetGodoList)
+	r.POST("/godoList", controllers.SubmitGodo)
 	r.Run()
 
 }

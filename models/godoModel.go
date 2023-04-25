@@ -8,7 +8,7 @@ import (
 
 type UnitTodo struct {
 	gorm.Model
-	title string
-	sTime time.Time
-	eTime time.Time
+	Title string
+	Stime time.Time
+	Etime time.Time
 }
