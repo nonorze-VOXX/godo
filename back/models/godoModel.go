@@ -11,4 +11,5 @@ type UnitTodo struct {
 	Title string
 	Stime time.Time
 	Etime time.Time
+	Done  bool
 }

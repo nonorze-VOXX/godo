@@ -17,6 +17,6 @@ func main() {
 
 	r.GET("/godoList", controllers.GetGodoList)
 	r.POST("/godoList", controllers.SubmitGodo)
+	r.POST("/godoList/update", controllers.UpdateUnitGodo)
 	r.Run()
-
 }
