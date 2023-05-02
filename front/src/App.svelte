@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Godo from "./Godo.svelte";
+  import Godo from "./godo/Godo.svelte";
 </script>
 
 <main>
