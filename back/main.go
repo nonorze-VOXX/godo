@@ -4,6 +4,7 @@ import (
 	"godo/controllers"
 	"godo/initializers"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,10 +14,14 @@ func init() {
 }
 
 func main() {
-	r := gin.Default()
+	server := gin.Default()
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowAllOrigins = true
+	server.Use(cors.New(corsConfig))
 
-	r.GET("/godoList", controllers.GetGodoList)
-	r.POST("/godoList", controllers.SubmitGodo)
-	r.POST("/godoList/update", controllers.UpdateUnitGodo)
-	r.Run()
+	server.GET("/godoList", controllers.GetGodoList)
+	server.POST("/godoList", controllers.SubmitGodo)
+	server.POST("/godoList/update", controllers.UpdateUnitGodo)
+
+	server.Run()
 }

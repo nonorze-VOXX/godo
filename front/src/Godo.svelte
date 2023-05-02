@@ -16,6 +16,10 @@
                 Etime,
                 Done,
             }),
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
         });
         const json = await res.json();
         result = JSON.stringify(json);
@@ -27,7 +31,7 @@
         <fieldset>
             <legend>submit new godo</legend>
             <input bind:value={Title} />
-            <button type="button" on:click={postGodo} />
+            <button type="button" on:click|preventDefault={postGodo} />
         </fieldset>
     </form>
     <pre>

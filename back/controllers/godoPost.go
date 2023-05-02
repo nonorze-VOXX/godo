@@ -19,6 +19,8 @@ func SubmitGodo(c *gin.Context) {
 
 	c.Bind(&body)
 
+	fmt.Println(body)
+
 	unitGodo := models.UnitTodo{
 		Title: body.Title,
 		Stime: body.Stime,
@@ -27,11 +29,11 @@ func SubmitGodo(c *gin.Context) {
 	}
 	fmt.Println("received")
 	fmt.Println(unitGodo)
-	result := initializers.DB.Create(&unitGodo)
-	if result.Error != nil {
-		c.Status(400)
-		return
-	}
+	// result := initializers.DB.Create(&unitGodo)
+	// if result.Error != nil {
+	// 	c.Status(400)
+	// 	return
+	// }
 	c.JSON(200, gin.H{"resuklt": "Success"})
 	// {
 	//   "Title": "amogus",
