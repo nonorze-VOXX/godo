@@ -11,10 +11,10 @@ import (
 
 func SubmitGodo(c *gin.Context) {
 	var body struct {
-		Title string
-		Stime time.Time
-		Etime time.Time
 		Done  bool
+		Etime time.Time
+		Stime time.Time
+		Title string
 	}
 
 	c.Bind(&body)
@@ -25,6 +25,7 @@ func SubmitGodo(c *gin.Context) {
 		Etime: body.Etime,
 		Done:  body.Done,
 	}
+	fmt.Println("received")
 	fmt.Println(unitGodo)
 	result := initializers.DB.Create(&unitGodo)
 	if result.Error != nil {
